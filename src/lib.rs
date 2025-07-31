@@ -531,6 +531,7 @@ pub mod throttle;
 
 #[cfg(feature = "cloud")]
 pub mod client;
+pub(crate) mod crypto_utils;
 
 #[cfg(feature = "cloud")]
 pub use client::{

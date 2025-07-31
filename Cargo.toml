@@ -59,6 +59,7 @@ rustls-pemfile = { version = "2.0", default-features = false, features = ["std"]
 serde = { version = "1.0", default-features = false, features = ["derive"], optional = true }
 serde_json = { version = "1.0", default-features = false, features = ["std"], optional = true }
 serde_urlencoded = { version = "0.7", optional = true }
+symcrypt = { git = "https://github.com/tot0/rust-symcrypt.git", optional = true, rev = "154ab84" }
 tokio = { version = "1.29.0", features = ["sync", "macros", "rt", "time", "io-util"] }
 
 [target.'cfg(target_family="unix")'.dev-dependencies]
@@ -70,7 +71,7 @@ wasm-bindgen-futures = "0.4.18"
 
 [features]
 default = ["fs"]
-cloud = ["serde", "serde_json", "quick-xml", "hyper", "reqwest", "reqwest/stream", "chrono/serde", "base64", "rand", "ring", "http-body-util", "form_urlencoded", "serde_urlencoded"]
+cloud = ["serde", "serde_json", "quick-xml", "hyper", "reqwest", "reqwest/stream", "chrono/serde", "base64", "rand", "symcrypt", "http-body-util", "form_urlencoded", "serde_urlencoded"]
 azure = ["cloud", "httparse"]
 fs = ["walkdir"]
 gcp = ["cloud", "rustls-pemfile"]
@@ -78,6 +79,7 @@ aws = ["cloud", "md-5"]
 http = ["cloud"]
 tls-webpki-roots = ["reqwest?/rustls-tls-webpki-roots"]
 integration = ["rand"]
+symcrypt = ["dep:symcrypt"]
 
 [dev-dependencies] # In alphabetical order
 hyper = { version = "1.2", features = ["server"] }

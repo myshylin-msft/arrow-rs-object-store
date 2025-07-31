@@ -21,7 +21,7 @@ use crate::client::builder::{add_query_pairs, HttpRequestBuilder};
 use crate::client::retry::RetryExt;
 use crate::client::token::{TemporaryToken, TokenCache};
 use crate::client::{CredentialProvider, HttpClient, HttpError, HttpRequest, TokenProvider};
-use crate::util::hmac_sha256;
+use crate::crypto_utils::hmac_sha256;
 use crate::RetryConfig;
 use async_trait::async_trait;
 use base64::prelude::{BASE64_STANDARD, BASE64_URL_SAFE_NO_PAD};
